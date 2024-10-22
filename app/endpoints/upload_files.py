@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from app.config.logging import get_logger
 from app.crud import crud_file
 from app.database.db import get_db
-from app.schemas import CsvModelBase
+from app.schemas import FileModelBase
 from app.utils.constants import fields
 from app.utils.custom_datetime_type import CustomDateTimeType
 
@@ -34,7 +34,7 @@ async def process_file(file: UploadFile, db: Session = Depends(get_db)):
                                         detail=f"Error processing file: field {key} not allowed.")
             if key in current_record:
                 if len(current_record) == 5:
-                    schema_list.append(CsvModelBase(
+                    schema_list.append(FileModelBase(
                         record_id=current_record.get("ID"),
                         name=current_record.get("Nombre"),
                         bird_date=CustomDateTimeType().convert_str_to_datetime(current_record.get("Fecha Nacimiento")),
@@ -46,7 +46,7 @@ async def process_file(file: UploadFile, db: Session = Depends(get_db)):
             current_record[key] = value
 
         if current_record:
-            schema_list.append(CsvModelBase(
+            schema_list.append(FileModelBase(
                 record_id=current_record.get("ID"),
                 name=current_record.get("Nombre"),
                 bird_date=CustomDateTimeType().convert_str_to_datetime(current_record.get("Fecha Nacimiento")),
