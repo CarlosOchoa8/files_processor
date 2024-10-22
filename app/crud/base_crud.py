@@ -4,7 +4,7 @@ from fastapi.encoders import jsonable_encoder
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session
 from app.config.logging import get_logger
-
+from fastapi import HTTPException
 
 logger = get_logger()
 
@@ -40,10 +40,14 @@ class CRUDBuilder:
             bulk_insert_on_ignore = bulk_insert.on_conflict_do_nothing()
             db.execute(bulk_insert_on_ignore)
             db.commit()
-            return bulk_insert
+            return True
         except Exception as exc:
             db.rollback()
             logger.error(f"Error insertando en la base de datos: {exc}")
+            raise HTTPException(
+                status_code=400,
+                detail=f"Error insertando en la base de datos: {exc}"
+            ) from exc
 
     def get(self, id: int, db: Session):
         return db.query(self.model).filter(self.model.id == id).first()

@@ -14,48 +14,45 @@ logger = get_logger()
 async def process_file(file: UploadFile, db: Session = Depends(get_db)):
     """Upload, validate process and store a csv or txt file in db."""
     file_read = await file.read()
-    file_content = file_read.decode("utf-8")
-    file_head_row = file_content.splitlines()[0]
-
-    delimiters = [",", ";", "\t", "|"]
-    delimiter_qty = {delimiter: file_head_row.count(delimiter) for delimiter in delimiters}
-    delimiter = max(delimiter_qty, key=delimiter_qty.get)
-    file_head_length = len(file_head_row.split(delimiter))
+    file_content = file_read.decode("utf-8").strip().splitlines()
 
     schema_list = []
-    for line in file_content.splitlines(delimiter)[1:]:
-        line_content = line.split(delimiter)
+    current_record = {}
+    for line in file_content:
+        if not line.strip():
+            continue
 
-        if len(line_content) != file_head_length:
-            return f"La cantidad de datos en {line_content} no corresponde a la cantidad de columnas {file_head_row}"
+        key, value = line.split(",", 1)
 
-        record_id=line_content[0]
-        name=line_content[1].strip('"')
-        bird_date=line_content[2]
-        email = line_content[3].strip('"')
-        amount=line_content[4]
-        formatted_date = CustomDateTimeType().convert_str_to_datetime(bird_date=bird_date)
+        value = value.strip().strip('"')
 
-        if not formatted_date:
-            return f"No se puede convertir la fecha {bird_date} al formato deseado DD-MM-YYYY o YYYY/MM/DD"
+        if key in current_record:
+            if len(current_record) == 5:
+                schema_list.append(CsvModelBase(
+                    record_id=current_record.get("ID"),
+                    name=current_record.get("Nombre"),
+                    bird_date=CustomDateTimeType().convert_str_to_datetime(current_record.get("Fecha")),
+                    email=current_record.get("Email"),
+                    amount=float(current_record.get("Monto"))
+                ))
+                current_record = {}
 
-        schema_list.append(
-            CsvModelBase(
-                record_id=record_id,
-                name=name,
-                bird_date=formatted_date,
-                amount=amount,
-                email=email,
-            )
-        )
-        logger.info(schema_list)
-        try:
-            crud_file.create_bulk(db=db, obj_in=schema_list)
-            logger.info("==============TRY==============")
-        except Exception as exc:
-            logger.warning(f"Error intentando serializar datos del archivo: {exc}")
+        current_record[key] = value
 
-    return "ok"
+    if current_record:
+        schema_list.append(CsvModelBase(
+            record_id=current_record.get("ID"),
+            name=current_record.get("Nombre"),
+            bird_date=CustomDateTimeType().convert_str_to_datetime(current_record.get("Fecha")),
+            email=current_record.get("Email"),
+            amount=float(current_record.get("Monto"))
+        ))
+
+    try:
+        return crud_file.create_bulk(db=db, obj_in=schema_list)
+    except Exception as exc:
+        logger.warning(f"Error intentando serializar datos del archivo: {exc}")
+
 
 
 file_router = router
