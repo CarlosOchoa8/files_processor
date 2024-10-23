@@ -1,0 +1,170 @@
+ID,1234
+Nombre,"Juan Perez"
+Fecha Nacimiento,"23-04-1990"
+Email,juan.perez@gmail.com
+Monto,1500.75
+
+ID,123
+Nombre,"Carlos Ochoa"
+Fecha Nacimiento,"11-02-1999"
+Email,carlosochoa@outlook.com
+Monto,2000.00
+
+ID,12
+Nombre,"Maria Lopez"
+Fecha Nacimiento,"12-02-1995"
+Email,maria.lopez@gmail.com
+Monto,129.20
+
+ID,125
+Nombre,"Ana Torres"
+Fecha Nacimiento,"30-05-1988"
+Email,ana.torres@gmail.com
+Monto,3200.50
+
+ID,126
+Nombre,"Luis Martinez"
+Fecha Nacimiento,"15-03-1992"
+Email,luis.martinez@yahoo.com
+Monto,1500.00
+
+ID,127
+Nombre,"Sofia Garcia"
+Fecha Nacimiento,"22-01-1990"
+Email,sofia.garcia@hotmail.com
+Monto,1800.00
+
+ID,128
+Nombre,"Pedro Sanchez"
+Fecha Nacimiento,"05-09-1985"
+Email,pedro.sanchez@gmail.com
+Monto,950.75
+
+ID,129
+Nombre,"Laura Jimenez"
+Fecha Nacimiento,"10-07-1993"
+Email,laura.jimenez@outlook.com
+Monto,1150.00
+
+ID,130
+Nombre,"Diego Ruiz"
+Fecha Nacimiento,"03-04-1991"
+Email,diego.ruiz@gmail.com
+Monto,875.25
+
+ID,131
+Nombre,"Paula Medina"
+Fecha Nacimiento,"14-11-1989"
+Email,paula.medina@yahoo.com
+Monto,2100.50
+
+ID,132
+Nombre,"Javier Reyes"
+Fecha Nacimiento,"08-08-1992"
+Email,javier.reyes@gmail.com
+Monto,430.00
+
+ID,133
+Nombre,"Clara Mendoza"
+Fecha Nacimiento,"21-12-1994"
+Email,clara.mendoza@hotmail.com
+Monto,3100.00
+
+ID,134
+Nombre,"Fernando Torres"
+Fecha Nacimiento,"15-02-1987"
+Email,fernando.torres@gmail.com
+Monto,150.00
+
+ID,135
+Nombre,"Gina Lopez"
+Fecha Nacimiento,"28-06-1996"
+Email,gina.lopez@outlook.com
+Monto,600.00
+
+ID,136
+Nombre,"Ricardo Vargas"
+Fecha Nacimiento,"17-03-1980"
+Email,ricardo.vargas@gmail.com
+Monto,0.00
+
+ID,137
+Nombre,"Sara Gomez"
+Fecha Nacimiento,"19-05-1995"
+Email,sara.gomez@yahoo.com
+Monto,500.00
+
+ID,138
+Nombre,"Marta Cruz"
+Fecha Nacimiento,"25-09-1991"
+Email,marta.cruz@hotmail.com
+Monto,2000.00
+
+ID,139
+Nombre,"David Fernández"
+Fecha Nacimiento,"12-04-1993"
+Email,david.fernandez@gmail.com
+Monto,1000.00
+
+ID,140
+Nombre,"Elena Salazar"
+Fecha Nacimiento,"02-02-1992"
+Email,elena.salazar@outlook.com
+Monto,780.25
+
+ID,141
+Nombre,"Marco Polo"
+Fecha Nacimiento,"30-12-1990"
+Email,marco.polo@gmail.com
+Monto,1500.50
+
+ID,142
+Nombre,"Invalid Record"
+Email,invalid.record@gmail.com
+Monto,300.00
+
+ID,143
+Nombre,"Missing Email"
+Fecha Nacimiento,"05-03-1990"
+Monto,400.00
+
+ID,144
+Nombre,"Carlos Invalid"
+Fecha Nacimiento,"20-06-1993"
+Email,carlos.invalid
+Monto,500.00
+
+ID,145
+Nombre,"Empty Name"
+Fecha Nacimiento,"15-07-1985"
+Email,, # Invalid email
+
+ID,146
+Nombre,"Javier"
+Fecha Nacimiento,"Invalid Date"
+Email,javier@gmail.com
+Monto,1000.00
+
+ID,147
+Nombre,"Samantha White"
+Fecha Nacimiento,"18-02-1995"
+Email,samantha.white@gmail.com
+
+ID,148
+Nombre,"Robert Black"
+Fecha Nacimiento,"01-11-1988"
+Monto,1500.00
+
+ID,149
+Nombre,"Missing ID"
+Fecha Nacimiento,"05-12-1993"
+Email,missing.id@gmail.com
+Monto,250.00
+
+ID,150
+Nombre,"Extra Field"
+Fecha Nacimiento,"09-01-1990"
+Email,extra.field@gmail.com
+Monto,150.00
+ExtraField, "Should be ignored"
+

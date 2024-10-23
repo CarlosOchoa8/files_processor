@@ -1,0 +1,15 @@
+ID,1234
+Nombre,"Juan Perez"
+Fecha Nacimiento,"23-04-1990"
+Email,juan.perez@gmail.com
+Monto,1500.75
+ID, 123
+Nombre, "Juan Perez",
+Fecha Nacimiento, "11-02-1999"
+Email, carlosochoa@outlook.com
+ID, 12
+Nombre, "Carlos Ochoa"
+Fecha Nacimiento, "12-02-1999"
+Email, otrocorreo@outlook.com
+Monto, 129.2
+
