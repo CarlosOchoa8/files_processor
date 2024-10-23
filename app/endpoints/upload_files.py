@@ -1,6 +1,7 @@
 
 from fastapi import APIRouter, Depends, UploadFile, status
 from fastapi.exceptions import HTTPException
+from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 
 from app.config.logging import get_logger
@@ -21,48 +22,50 @@ async def process_file(file: UploadFile, db: Session = Depends(get_db)):
 
     schema_list = []
     current_record = {}
+    record_lines = len(fields)
+
     try:
-        for line in file_content:
+        for i, line in enumerate(file_content):
             if not line.strip():
                 continue
 
             key, value = line.split(",", 1)
-
             value = value.strip().strip('"')
 
             if key not in fields:
-                return HTTPException(status_code=400,
-                                        detail=f"Error processing file: field {key} not allowed.")
-            if key in current_record:
-                if len(current_record) == 5:
+                logger.warning(f"Field dont permitted: {key}. ignoring this record.")
+                continue
+
+            current_record[key] = value
+
+            if len(current_record) == record_lines:
+                if all(field in current_record for field in fields):
                     schema_list.append(FileModelBase(
                         record_id=current_record.get("ID"),
                         name=current_record.get("Nombre"),
                         bird_date=CustomDateTimeType().convert_str_to_datetime(current_record.get("Fecha Nacimiento")),
                         email=current_record.get("Email"),
-                        amount=float(current_record.get("Monto"))
+                        amount=float(current_record.get("Monto") or 0)
                     ))
-                    current_record = {}
+                else:
+                    logger.warning(f"Full record ignored: {current_record}")
 
-            current_record[key] = value
-
-        if current_record:
-            schema_list.append(FileModelBase(
-                record_id=current_record.get("ID"),
-                name=current_record.get("Nombre"),
-                bird_date=CustomDateTimeType().convert_str_to_datetime(current_record.get("Fecha Nacimiento")),
-                email=current_record.get("Email"),
-                amount=float(current_record.get("Monto"))
-            ))
+                current_record = {}
     except Exception as exc:
-        return HTTPException(status_code=400,
-                                 detail=f"Error processing file {exc}")
+        logger.warning(f"Error processing file: {exc}")
 
     try:
+        if not schema_list:
+            return JSONResponse(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                content={"message": f"There are not valid record to store in database: {file_content}"})
+
         return crud_file.create_bulk(db=db, obj_in=schema_list)
     except Exception as exc:
-        logger.warning(f"Error intentando insertar datos en base de datos: {exc}")
-
+        logger.warning(f"Error trying to store records in database: {exc}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Error trying to store records in database.") from exc
 
 @router.get("/record/{id_record}", response_model=FileModelBase)
 def get_record_by_id(id_record: int, db: Session = Depends(get_db)):
