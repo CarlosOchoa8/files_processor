@@ -1,3 +1,4 @@
+from fastapi import status
 from fastapi.exceptions import HTTPException
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
@@ -21,7 +22,7 @@ class CRUDFile(CRUDBuilder):
             obj_in = [schema for schema in obj_in if schema.record_id not in ids_existant]
 
         if not obj_in and data_existant:
-            return HTTPException(status_code=402,
+            return HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
                                  detail=f"Records with id {ids_existant} already are stored.")
         try:
             if data_existant:
