@@ -35,5 +35,9 @@ class CRUDFile(CRUDBuilder):
         except Exception as exc:
             return exc
 
+    def get_record_by_recordid(self, record_id: int, db: Session) -> FileModel:
+        """Get a record by his record id given."""
+        return db.query(self.model).filter(self.model.record_id == record_id).first()
+
 
 crud_file = CRUDFile(FileModel)

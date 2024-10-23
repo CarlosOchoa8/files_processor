@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends, UploadFile
+
+from fastapi import APIRouter, Depends, UploadFile, status
 from fastapi.exceptions import HTTPException
 from sqlalchemy.orm import Session
 
@@ -63,5 +64,15 @@ async def process_file(file: UploadFile, db: Session = Depends(get_db)):
         logger.warning(f"Error intentando insertar datos en base de datos: {exc}")
 
 
+@router.get("/record/{id_record}", response_model=FileModelBase)
+def get_record_by_id(id_record: int, db: Session = Depends(get_db)):
+    """Get a record by his id given."""
+    if record := crud_file.get_record_by_recordid(record_id=id_record, db=db):
+        return record
+
+    raise HTTPException(
+        status_code=status.HTTP_404_NOT_FOUND,
+        detail=f"Record id {id_record} not founded."
+        )
 
 file_router = router
