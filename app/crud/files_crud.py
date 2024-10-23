@@ -22,18 +22,22 @@ class CRUDFile(CRUDBuilder):
 
         if not obj_in and data_existant:
             return HTTPException(status_code=402,
-                                 detail=f"Los registros con id {ids_existant} ya se encuentran registrados.")
+                                 detail=f"Records with id {ids_existant} already are stored.")
         try:
             if data_existant:
                 super().create_bulk(db=db, obj_in=obj_in)
                 return JSONResponse(status_code=200,
-                                    content=f"Los registros con id {ids_existant} no fueron insertados porque ya existen.")
+                                    content=f"Records with id {ids_existant} werent stored because of already exists.")
 
             super().create_bulk(db=db, obj_in=obj_in)
             return JSONResponse(status_code=200,
-                                content="Registros insertados correctamente.")
+                                content="Records inserted properly.")
         except Exception as exc:
             return exc
+
+    def get_record_by_recordid(self, record_id: int, db: Session) -> FileModel:
+        """Get a record by his record id given."""
+        return db.query(self.model).filter(self.model.record_id == record_id).first()
 
 
 crud_file = CRUDFile(FileModel)
