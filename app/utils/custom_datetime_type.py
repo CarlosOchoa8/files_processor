@@ -14,10 +14,9 @@ class CustomDateTimeType:
     @classmethod
     def convert_str_to_datetime(cls, bird_date: str) -> datetime:
         """Convert a given string datetime into object datetime on allowed formats."""
-        clean_date = bird_date.strip('"')
         for fmt in cls._date_formats:
             try:
-                date_object = datetime.strptime(clean_date, fmt)
+                date_object = datetime.strptime(bird_date, fmt)
                 logger.info(f"Cadfena de fecha {bird_date} convertida a objeto datetime: {date_object}")
                 return date_object
             except ValueError as ve:
