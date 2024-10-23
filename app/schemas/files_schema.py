@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, PositiveFloat
 
 
 class FileModelBase(BaseModel):
@@ -8,6 +8,6 @@ class FileModelBase(BaseModel):
     record_id: int
     name: str
     bird_date: datetime
-    amount: float
+    amount: PositiveFloat
     email: EmailStr
 
