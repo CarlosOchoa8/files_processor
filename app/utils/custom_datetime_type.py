@@ -12,16 +12,17 @@ class CustomDateTimeType:
     ]
 
     @classmethod
-    def convert_str_to_datetime(cls, bird_date: str) -> datetime:
-        """Convert a given string datetime into object datetime on allowed formats."""
+    def convert_str_to_datetime(cls, bird_date: str) -> datetime | None:
+        """Convert a given string datetime into the standard format YYYY-MM-DD."""
         for fmt in cls._date_formats:
             try:
                 date_object = datetime.strptime(bird_date, fmt)
-                logger.info(f"Cadfena de fecha {bird_date} convertida a objeto datetime: {date_object}")
-                return date_object
+                standard_date = date_object.strftime("%Y-%m-%d")  # Convert to desired format
+                logger.info(f"Date string {bird_date} converted to datetime object: {standard_date}")
+                return standard_date
             except ValueError as ve:
-                logger.error(f"No se puede convertir la fecha {bird_date} al formato deseado: {ve}")
+                logger.error(f"Cannot convert date {bird_date} to the desired format: {ve}")
                 continue
-        
-        logger.error(f"No se pudo convertir la fecha: {bird_date}")
+
+        logger.error(f"Failed to convert date: {bird_date}")
         return None
