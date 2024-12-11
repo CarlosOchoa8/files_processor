@@ -1,0 +1,225 @@
+{
+	"Comprobante": {
+		"Emisor": {
+			"_Rfc": "VLO1701142Q9",
+			"_Nombre": "VAGA LOGISTICA",
+			"_RegimenFiscal": "601",
+			"__prefix": "cfdi"
+		},
+		"Receptor": {
+			"_Rfc": "NWF160412HTA",
+			"_Nombre": "NEW WORLD FUEL",
+			"_DomicilioFiscalReceptor": "66230",
+			"_RegimenFiscalReceptor": "601",
+			"_UsoCFDI": "G03",
+			"__prefix": "cfdi"
+		},
+		"Conceptos": {
+			"Concepto": {
+				"Impuestos": {
+					"Traslados": {
+						"Traslado": {
+							"_Base": "21500",
+							"_Impuesto": "002",
+							"_TipoFactor": "Tasa",
+							"_TasaOCuota": "0.160000",
+							"_Importe": "3440",
+							"__prefix": "cfdi"
+						},
+						"__prefix": "cfdi"
+					},
+					"Retenciones": {
+						"Retencion": {
+							"_Base": "21500",
+							"_Impuesto": "002",
+							"_TipoFactor": "Tasa",
+							"_TasaOCuota": "0.040000",
+							"_Importe": "860",
+							"__prefix": "cfdi"
+						},
+						"__prefix": "cfdi"
+					},
+					"__prefix": "cfdi"
+				},
+				"_ClaveProdServ": "78101800",
+				"_Unidad": "Unidad de servicio",
+				"_Cantidad": "1",
+				"_ClaveUnidad": "E48",
+				"_Descripcion": "Transporte de Combustible, Pemex Comp. de Carga: 900239, Remisión: 602-65750-14/10/2024-2165803 sellos 1587417-1587416",
+				"_ValorUnitario": "21500",
+				"_Importe": "21500",
+				"_ObjetoImp": "02",
+				"__prefix": "cfdi"
+			},
+			"__prefix": "cfdi"
+		},
+		"Impuestos": {
+			"Retenciones": {
+				"Retencion": {
+					"_Impuesto": "002",
+					"_Importe": "860",
+					"__prefix": "cfdi"
+				},
+				"__prefix": "cfdi"
+			},
+			"Traslados": {
+				"Traslado": {
+					"_Base": "21500",
+					"_Impuesto": "002",
+					"_TipoFactor": "Tasa",
+					"_TasaOCuota": "0.160000",
+					"_Importe": "3440",
+					"__prefix": "cfdi"
+				},
+				"__prefix": "cfdi"
+			},
+			"_TotalImpuestosRetenidos": "860.00",
+			"_TotalImpuestosTrasladados": "3440.00",
+			"__prefix": "cfdi"
+		},
+		"Complemento": {
+			"CartaPorte": {
+				"Ubicaciones": {
+					"Ubicacion": [
+						{
+							"Domicilio": {
+								"_Calle": "CARRETERA MONTERREY - REYNOSA KM 36",
+								"_Municipio": "009",
+								"_Estado": "NLE",
+								"_Pais": "MEX",
+								"_CodigoPostal": "67483",
+								"__prefix": "cartaporte31"
+							},
+							"_TipoUbicacion": "Origen",
+							"_IDUbicacion": "OR000026",
+							"_RFCRemitenteDestinatario": "PLO151001KT9",
+							"_NombreRemitenteDestinatario": "PEMEX LOGISTICA-CADEREYTA",
+							"_FechaHoraSalidaLlegada": "2024-10-14T09:26:00",
+							"__prefix": "cartaporte31"
+						},
+						{
+							"Domicilio": {
+								"_Calle": "VIA TAMPICO KM. 501.5",
+								"_Municipio": "026",
+								"_Estado": "NLE",
+								"_Pais": "MEX",
+								"_CodigoPostal": "67130",
+								"__prefix": "cartaporte31"
+							},
+							"_TipoUbicacion": "Destino",
+							"_IDUbicacion": "DE000040",
+							"_RFCRemitenteDestinatario": "RIN830930A79",
+							"_NombreRemitenteDestinatario": "RAGASA INDSUTRIAS, S.A. de C,V,",
+							"_FechaHoraSalidaLlegada": "2024-10-14T11:09:00",
+							"_DistanciaRecorrida": "180",
+							"__prefix": "cartaporte31"
+						}
+					],
+					"__prefix": "cartaporte31"
+				},
+				"Mercancias": {
+					"Mercancia": {
+						"CantidadTransporta": {
+							"_Cantidad": "19962",
+							"_IDOrigen": "OR000026",
+							"_IDDestino": "DE000040",
+							"__prefix": "cartaporte31"
+						},
+						"_BienesTransp": "15101505",
+						"_Descripcion": "Combustible diesel",
+						"_Cantidad": "19962",
+						"_ClaveUnidad": "D40",
+						"_MaterialPeligroso": "Sí",
+						"_CveMaterialPeligroso": "1202",
+						"_Embalaje": "1A1",
+						"_PesoEnKg": "16000",
+						"__prefix": "cartaporte31"
+					},
+					"Autotransporte": {
+						"IdentificacionVehicular": {
+							"_ConfigVehicular": "C3",
+							"_PesoBrutoVehicular": "9",
+							"_PlacaVM": "28AG9C",
+							"_AnioModeloVM": "2009",
+							"__prefix": "cartaporte31"
+						},
+						"Seguros": {
+							"_AseguraRespCivil": "QUALITAS",
+							"_PolizaRespCivil": "0760089747",
+							"_AseguraMedAmbiente": "QUALITAS",
+							"_PolizaMedAmbiente": "0760089747",
+							"__prefix": "cartaporte31"
+						},
+						"_PermSCT": "TPAF03",
+						"_NumPermisoSCT": "1020VLO22092017230301000",
+						"__prefix": "cartaporte31"
+					},
+					"_PesoBrutoTotal": "16000",
+					"_UnidadPeso": "KGM",
+					"_NumTotalMercancias": "1",
+					"__prefix": "cartaporte31"
+				},
+				"FiguraTransporte": {
+					"TiposFigura": {
+						"Domicilio": {
+							"_Calle": "Curano",
+							"_NumeroInterior": "101",
+							"_Colonia": "4077",
+							"_Localidad": "22",
+							"_Municipio": "031",
+							"_Estado": "NLE",
+							"_Pais": "MEX",
+							"_CodigoPostal": "67280",
+							"__prefix": "cartaporte31"
+						},
+						"_TipoFigura": "01",
+						"_RFCFigura": "PEGL880104P64",
+						"_NumLicencia": "DF001110856",
+						"_NombreFigura": "JOSE LUIS PEREZ GONZALEZ",
+						"__prefix": "cartaporte31"
+					},
+					"__prefix": "cartaporte31"
+				},
+				"_xmlns:cartaporte31": "http://www.sat.gob.mx/CartaPorte31",
+				"_Version": "3.1",
+				"_IdCCP": "CCC123A7-8016-4018-89E7-37DAB04F4685",
+				"_TranspInternac": "No",
+				"_TotalDistRec": "180",
+				"__prefix": "cartaporte31"
+			},
+			"TimbreFiscalDigital": {
+				"_xmlns:tfd": "http://www.sat.gob.mx/TimbreFiscalDigital",
+				"_xsi:schemaLocation": "http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd",
+				"_Version": "1.1",
+				"_UUID": "60c14e51-d845-4165-ae2b-3477fcfe3d5c",
+				"_FechaTimbrado": "2024-10-14T10:10:50",
+				"_RfcProvCertif": "LSO1306189R5",
+				"_SelloCFD": "eaZSDoVEom7hZ5AWMQ24W5a05O9hgCYmVbyBoHKTNTybVT1d8Q7Ug7S5aGgflMZ25Y3uSmvq6dz87eDA4xfYIlnn5ZUnhfnnEHZ0Yk2mJz0vSDPXEHBAyyBslRWMXCmFsVy0a5yvmqpcBnmakZUgpth2Zcj62OWcJ3ZrrSv+jW+f+aqrw9Ahxv7cQ/FYxh05Zt7JO8UES6g7jswVm7uC1GW9fIFqWJlp/ohK53S4RkzHa9uGbGPBviLJU0fqLvMZtzmwSc4qUTjeyD0qYKXPYuPAt1ws+lgGga9mgyVkx0ZwOSC4OXnUoJxs8dq1Lc3KjlCTjvbaiLrtUt4HUPptEg==",
+				"_NoCertificadoSAT": "00001000000509846663",
+				"_SelloSAT": "FR1FH0jH96F+qxXaKaqgQ/FCUQjetXeAfZl1C3HC29Thku/oqalHPYhJEVVxPlkJjHONpKDk+UEJlkcSb5lsWoNrsoAWpaBDl7GMje7b4W3teJrFcXy3NDui3q/p8qq+AiAHlxQUrYfzQgRvRhOLZ6J18kP7/K1v3zGVoFsKT3laC9SxhGEU2WwJ3MH+KaIjiSp+CmF2+8a4eEDq4BmpqDuXJ9bd349ejbXpUT6kJacXsiJ1sAvZk1ErVOQZ4NH5x6Zjw6TcN9JmLaUROk2o4gTTJRh44snWuVshP9Iaum3OHd7gKuPJw3MiQGBBs1pMQe0RcFi7zdSrUBsF4g8z1w==",
+				"__prefix": "tfd"
+			},
+			"__prefix": "cfdi"
+		},
+		"_xmlns:cfdi": "http://www.sat.gob.mx/cfd/4",
+		"_xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+		"_xmlns:cartaporte31": "http://www.sat.gob.mx/CartaPorte31",
+		"_xsi:schemaLocation": "http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/CartaPorte31 http://www.sat.gob.mx/sitio_internet/cfd/CartaPorte/CartaPorte31.xsd",
+		"_Version": "4.0",
+		"_Serie": "C",
+		"_Folio": "4411",
+		"_Fecha": "2024-10-14T10:07:47",
+		"_TipoDeComprobante": "I",
+		"_NoCertificado": "00001000000506816858",
+		"_FormaPago": "99",
+		"_Exportacion": "01",
+		"_SubTotal": "21500.00",
+		"_Moneda": "MXN",
+		"_Total": "24080.00",
+		"_MetodoPago": "PPD",
+		"_LugarExpedicion": "34390",
+		"_Sello": "eaZSDoVEom7hZ5AWMQ24W5a05O9hgCYmVbyBoHKTNTybVT1d8Q7Ug7S5aGgflMZ25Y3uSmvq6dz87eDA4xfYIlnn5ZUnhfnnEHZ0Yk2mJz0vSDPXEHBAyyBslRWMXCmFsVy0a5yvmqpcBnmakZUgpth2Zcj62OWcJ3ZrrSv+jW+f+aqrw9Ahxv7cQ/FYxh05Zt7JO8UES6g7jswVm7uC1GW9fIFqWJlp/ohK53S4RkzHa9uGbGPBviLJU0fqLvMZtzmwSc4qUTjeyD0qYKXPYuPAt1ws+lgGga9mgyVkx0ZwOSC4OXnUoJxs8dq1Lc3KjlCTjvbaiLrtUt4HUPptEg==",
+		"_Certificado": "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",
+		"__prefix": "cfdi"
+	}
+}
