@@ -9,25 +9,24 @@ namespaces = {
 }
 
 dic = {
-    "concepto_impuesto": ".//cfdi:conceptos//cfdi:traslados//cfdi:traslado[@Impuesto]",
-    "impuesto_impuesto": ".//cfdi:impuestos//cfdi:traslados//cfdi:traslado[@Impuesto]"
+    "concepto_impuesto": ".//cfdi:Conceptos//cfdi:Traslados//cfdi:Traslado[@Impuesto]",
+    "impuesto_impuesto": ".//cfdi:Impuestos//cfdi:Traslados//cfdi:Traslado[@Imlpuesto]"
 }
-
-for a, b in dic.items():
-    print("aasdasddas", a,  b)
 
 # Recorrer los paths definidos en el diccionario
 for key, value in dic.items():
     traslado = root.find(value, namespaces)
+    print('================ RESULTADO DE FIND ===================')
     print(traslado)
 
     attrib_pattern = r"\[@([^\]]+)\]"
     attrib_name = re.search(attrib_pattern, value).group(1)
-    if traslado is not None:
-        print("++++++++++++++++++++++++++=")
+    if traslado is None:
+        print("Is not None")
         print(traslado.attrib[attrib_name])
         traslado = 0
-    print("attrib_name ", attrib_name)
+        continue
+    print(traslado.attrib.get(attrib_name, "No"))
     print(f"KEY => {key} VALUE => {value} RESULTADO => {traslado.attrib.get(attrib_name, 0)}")
 
     if traslado is not None:
