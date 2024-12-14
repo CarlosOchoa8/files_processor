@@ -6,13 +6,15 @@ xml_tree = ET.parse("data.xml")
 root = xml_tree.getroot()  # Obtén el nodo raíz del XML (el nodo <people>)
 
 namespaces = {
-    "cfdi": "http://www.sat.gob.mx/cfd/4"
+    "cfdi": "http://www.sat.gob.mx/cfd/4",
+    "tfd": "http://www.sat.gob.mx/TimbreFiscalDigital"
 }
 
 mapping_attribs = {
     "concepto_impuesto": ".//cfdi:Conceptos//cfdi:Traslados//cfdi:Traslado[@Impuesto]",
     "impuesto_impuesto": ".//cfdi:Impuestos//cfdi:Traslados//cfdi:Traslado[@Impuesto]",
     "impuesto_retencion": ".//cfdi:Impuestos//cfdi:Retenciones//cfdi:Retencion[@TipoFactor]",
+    "uuid": ".//cfdi:Complemento//tfd:TimbreFiscalDigital[@UUID]",
     "cliente": ".//cfdi:Receptor[@Rfc]"
 }
 
