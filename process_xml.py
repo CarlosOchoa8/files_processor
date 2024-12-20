@@ -20,7 +20,8 @@ mapping_attribs = {
     "cliente": ".//cfdi:Receptor[@Rfc]",
     "conceptoTraslado": ".//cfdi:Complemento//tfd:TimbreFiscalDigital[@UUID]",
     "impuestoTraslado": ".//cfdi:Complemento//cartaporte31:CartaPorte//cartaporte31:Mercancias//cartaporte31:Mercancia[@BienesTransp]",
-    "impuestoRetencion": ".//cfdi:Complemento//cartaporte31:CartePorte//cartaporte31:Mercancias//cartaporte31:Mercancia[@Cantidad]"
+    "impuestoRetencion": ".//cfdi:Complemento//cartaporte31:CartePorte//cartaporte31:Mercancias//cartaporte31:Mercancia[@Cantidad]",
+    # "clienteRfc": "CONSTANTE"
 }
 
 attribs_data = {
