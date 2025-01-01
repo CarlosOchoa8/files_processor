@@ -9,7 +9,7 @@ from app.models import FileModel
 
 class CRUDFile(CRUDBuilder):
     """
-    CRUD class object with default methods to Create and Read for FileModel
+    CRUD class object with default methods to Create and Read for FileModel.
     """
 
     def create_bulk(self, db: Session, obj_in: list | dict):
