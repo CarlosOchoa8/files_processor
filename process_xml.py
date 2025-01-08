@@ -65,7 +65,7 @@ for key, value in mapping_attribs.items():
     # print(f"KEY => {key} VALUE => {value} RESULTADO => {find_attrib.attrib.get(attrib_name, 0)}")
 
 
-# 'cfdi': ('cfdi:Comprobante', 'cfdi:Complemento', 'tfd:TimbreFiscalDigital', '@UUID')
+# 'cfdi': ('cfdi:Comprobante', 'cfdi:Complemento', 'tfd:TimbreFiscalDigital','@UUID')
 # "claveSubProducto": ("cfdi:Comprobante", "cfdi:Complemento", "cartaporteXX:CartaPorte", "cartaporteXX:Mercancias", "cartaporteXX:Mercancia", "@BienesTransp"),
 # 'volumenIT': ('cfdi:Comprobante', "cfdi:Complemento", "cartaporteXX:CartaPorte", "cartaporteXX:Mercancias", "cartaporteXX:Mercancia", "@Cantidad"),
 # 'volumenFT': ("cfdi", ),
